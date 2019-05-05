@@ -6,11 +6,11 @@ This is a sample application of DApps.
 It is created as a project of Truffle framework.  
 It allows accessing to Ganache(Ethereum) and Loom Network.  
 It allows accessing through Express server(application server).  
-[DApps : Medium](https://medium.com/swlh/understanding-dapps-decentralized-applications-8f3668ebdc9a)  
-[Truffle : Official](https://truffleframework.com/)  
-[Ganache : Official](https://truffleframework.com/docs/ganache/overview)  
-[Loom Network SDK : Official](https://loomx.io/developers/)  
-[Express : Official](https://expressjs.com/)  
+- [DApps : Medium](https://medium.com/swlh/understanding-dapps-decentralized-applications-8f3668ebdc9a)  
+- [Truffle : Official](https://truffleframework.com/)  
+- [Ganache : Official](https://truffleframework.com/docs/ganache/overview)  
+- [Loom Network SDK : Official](https://loomx.io/developers/)  
+- [Express : Official](https://expressjs.com/)  
 
 ## Description
 Let's run and analyze the sample DApps.  
@@ -30,7 +30,7 @@ I hope to be useful to you when you develop DApps.
 ### Setting up the development environment.
 The script file [setup0000_all](https://github.com/zombietimes/setup0000_all) is useful to set up the development environment.  
 It consists of the external script files below.  
-[setup0000_all](https://github.com/zombietimes/setup0000_all)  
+- [setup0000_all](https://github.com/zombietimes/setup0000_all)  
 
 ### Environment
 This script file is for Ubuntu(Linux).  
@@ -56,45 +56,46 @@ git clone https://github.com/zombietimes/dapp_erc20.git
 cd dapp_erc20
 sh ./ubuntuCmd_setupDapp_coin20.sh
 ```
-![dapp_erc20_0000.png]()
+![dapp_erc20_0000](https://user-images.githubusercontent.com/50263232/57186475-18a86500-6f1b-11e9-89db-5c9aab1fe68c.png)  
 After running Ganache, press the Enter key.  
-![dapp_erc20_0001.png]()  
-![dapp_erc20_0002.png]()  
+![dapp_erc20_0001](https://user-images.githubusercontent.com/50263232/57186477-2827ae00-6f1b-11e9-9550-63bf18155474.png)  
+![dapp_erc20_0002](https://user-images.githubusercontent.com/50263232/57186483-35449d00-6f1b-11e9-96ef-d728e7a907fd.png)  
 
 ### Truffle console to Ganache
 The next step is the operation on Truffle console.  
 Confirm to send some original coin.  
-The original coin is sent from accounts[0] to accounts[1].  
+The original coin is sent from account0 to account1.  
 ```sh
 # Truffle commands.
 Coin20.address
 Coin20.deployed().then(ret=>instance=ret)
 instance.name()
 ```
-![dapp_erc20_0003.png]()  
-![dapp_erc20_0004.png]()  
-The balace of accounts[0](0x655...) is 10000.   
+![dapp_erc20_0003](https://user-images.githubusercontent.com/50263232/57186486-4392b900-6f1b-11e9-8b06-cc1d4c4579ee.png)  
+![dapp_erc20_0004](https://user-images.githubusercontent.com/50263232/57186488-4ee5e480-6f1b-11e9-8694-cad9040f6af3.png)  
+
+The balace of account0(0x655...) is 10000.   
 ```sh
 web3.eth.getAccounts().then(ret=>accounts=ret)
 addr0 = accounts[0]
 addr1 = accounts[1]
 instance.balanceOf(addr0).then(ret=>ret.toString())
 ```
-![dapp_erc20_0005.png]()  
-Send 200 from accounts[0](0x655) to accounts[1](0x576).  
+![dapp_erc20_0005](https://user-images.githubusercontent.com/50263232/57186490-5dcc9700-6f1b-11e9-9b91-bdd93b5e51e0.png)  
+Send 200 from account0(0x655...) to account1(0x576...).  
 ```sh
 instance.transfer(addr1,200)
 ```
-![dapp_erc20_0006.png]()  
+![dapp_erc20_0006](https://user-images.githubusercontent.com/50263232/57186494-691fc280-6f1b-11e9-9fd7-81602259c577.png)  
 Sent to 200.  
-The balace of accounts[0](0x655...) is 9800.   
-The balace of accounts[1](0x576...) is 200.   
+The balace of account0(0x655...) is 9800.   
+The balace of account1(0x576...) is 200.   
 ```sh
 instance.balanceOf(addr0).then(ret=>ret.toString())
 instance.balanceOf(addr1).then(ret=>ret.toString())
 .exit
 ```
-![dapp_erc20_0007.png]()  
+![dapp_erc20_0007](https://user-images.githubusercontent.com/50263232/57186503-79d03880-6f1b-11e9-9c62-970b869e6270.png)  
 
 ### Web server to Ganache
 The next step is the operation on Ubuntu console.  
@@ -105,7 +106,7 @@ You can send some original coin by using it.
 cd ~/dapps/deploy/by_truffle/accessor
 node ./to_coin20.js
 ```
-![dapp_erc20_0008.png]()  
+![dapp_erc20_0008](https://user-images.githubusercontent.com/50263232/57186507-894f8180-6f1b-11e9-9145-245e6517e900.png)  
 
 ### Browser to Web server to Ganache
 The final step is web browsing.  
@@ -120,8 +121,8 @@ node ./bin/www
 # Browser.
 http://127.0.0.1:3000
 ```
-![dapp_erc20_0009.png]()  
-![dapp_erc20_0010.png]()  
+![dapp_erc20_0009](https://user-images.githubusercontent.com/50263232/57186514-966c7080-6f1b-11e9-8064-c47ce71dfd2f.png)  
+![dapp_erc20_0010](https://user-images.githubusercontent.com/50263232/57186516-a2583280-6f1b-11e9-9ff9-a5224de318e8.png)  
 
 ## Requirement
 I confirmed that it works on Ubuntu Desktop 18.04 in VirtualBox.  
@@ -130,25 +131,25 @@ It works on the environment below.
 - Google Chrome.
 - [setup0000_all](https://github.com/zombietimes/setup0000_all)
 
-## Relative links
+## Relative link
 ### Overview
-[Ethereum : Official](https://www.ethereum.org/)  
-[Ethereum : Wikipedia](https://en.wikipedia.org/wiki/Ethereum)  
-[Loom Network : Official](https://loomx.io/)  
-[Loom Network : Binance wiki](https://info.binance.com/en/currencies/loom-network)  
+- [Ethereum : Official](https://www.ethereum.org/)
+- [Ethereum : Wikipedia](https://en.wikipedia.org/wiki/Ethereum)
+- [Loom Network : Official](https://loomx.io/)
+- [Loom Network : Binance wiki](https://info.binance.com/en/currencies/loom-network)
 
 ### Development
-[Online editor : EthFiddle](https://ethfiddle.com/)  
-[Online editor : Remix](https://remix.ethereum.org/)  
+- [Online editor : EthFiddle](https://ethfiddle.com/)
+- [Online editor : Remix](https://remix.ethereum.org/)
 
 ### Learning
-[Online learning : CryptoZombies](https://cryptozombies.io/)  
-[Grammar : Solidity](https://solidity.readthedocs.io/)  
-[Grammar : Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)  
+- [Online learning : CryptoZombies](https://cryptozombies.io/)
+- [Grammar : Solidity](https://solidity.readthedocs.io/)
+- [Grammar : Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
 
 ### DApps
-[DApps : CryptoKitties](https://www.cryptokitties.co/)  
-[DApps : Zombie Battle ground](https://loom.games/en/)  
+- [DApps : CryptoKitties](https://www.cryptokitties.co/)
+- [DApps : Zombie Battle ground](https://loom.games/en/)
 
 ## Messages
 Do you believe that the decentralized world is coming?  
@@ -157,7 +158,4 @@ Why?
 
 ## License
 BSD 3-Clause, see `LICENSE` file for details.  
-
----
-Produced by Zombie Times  
 
